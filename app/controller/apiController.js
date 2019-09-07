@@ -35,3 +35,29 @@ else{
 }
 };
 
+exports.read_an_item = function(req, res) {
+    Item.getItemById(req.params.itemId, function(err, item) {
+      if (err)
+        res.send(err);
+      res.json(item);
+    });
+  };
+  
+  
+  exports.update_an_item = function(req, res) {
+    Item.updateById(req.params.itemId, new Item(req.body), function(err, item) {
+      if (err)
+        res.send(err);
+      res.json(item);
+    });
+  };
+  
+  
+  exports.delete_an_item = function(req, res) {
+  
+    Item.remove( req.params.itemId, function(err, item) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'Item successfully deleted' });
+    });
+  };

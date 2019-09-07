@@ -7,8 +7,8 @@ module.exports = function(app) {
     .get(controller.list_all_items)
     .post(controller.create_an_item);
    
-   //app.route('/items/:itemId')
-    //.get(controller.read_a_task)
-    //.put(controller.update_a_task)
-    //.delete(controller.delete_a_task);
+   app.route('/items/:itemId')
+    .get(controller.read_an_item)
+    .put(controller.update_an_item)
+    .delete(controller.delete_an_item);
     };

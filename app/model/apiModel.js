@@ -33,6 +33,48 @@ Item.getAllItems = function (result) {
              result(null, res);
             }
         });  
-    }; 
+    };
+    
+Item.getItemById = function (itemId, result) {
+        sql.query("Select * from items where id = ? ", itemId, function (err, res) {             
+                if(err) {
+                    console.log("error: ", err);
+                    result(err, null);
+                }
+                else{
+                    result(null, res);
+              
+                }
+            });   
+};
+
+Item.updateById = function(id, newItem, result){
+    sql.query("UPDATE items SET name = ?, qty = ?, amount = ? WHERE id = ?", [newItem.name, newItem.qty, newItem.amount, id], function (err, res) {
+            if(err) {
+                console.log("error: ", err);
+                  result(null, err);
+               }
+             else{   
+               result(null, res);
+                  }
+              }); 
+  };
+
+Item.remove = function(id, result){
+       sql.query("DELETE FROM items WHERE id = ?", [id], function (err, res) {
+  
+                  if(err) {
+                      console.log("error: ", err);
+                      result(null, err);
+                  }
+                  else{
+                 
+                   result(null, res);
+                  }
+              }); 
+  };
+
+
+
 
 module.exports = Item;
