@@ -10,4 +10,6 @@ Columns: 'id' - int PK, 'name' - varchar(255), 'qty' - int (10), 'amount' - doub
 
 Status: Complete with GET (All/Id), POST, PUT, DELETE
 
+Software used: XAMPP MySQL, Postman, Express
+
 -Jm
