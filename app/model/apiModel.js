@@ -15,10 +15,24 @@ Item.createItem = function (newItem, result) {
                     result(err, null);
                 }
                 else{
-                    console.log(res.insertId);
-                    result(null, res.insertId);
+                    console.log("Successfully entered data: " + res.Item);
+                    result(null, "Successfully entered data: " + res.Item);
                 }
             });           
 };
+
+Item.getAllItems = function (result) {
+    sql.query("Select * from items", function (err, res) {
+
+            if(err) {
+                console.log("error: ", err);
+                result(null, err);
+            }
+            else{
+              console.log('items : ', res);  
+             result(null, res);
+            }
+        });  
+    }; 
 
 module.exports = Item;

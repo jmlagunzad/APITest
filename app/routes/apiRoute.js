@@ -4,7 +4,7 @@ module.exports = function(app) {
 
   // Routes
   app.route('/items')
-    //.get(controller.list_all_items)
+    .get(controller.list_all_items)
     .post(controller.create_an_item);
    
    //app.route('/items/:itemId')

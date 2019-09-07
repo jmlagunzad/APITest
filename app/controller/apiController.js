@@ -3,7 +3,7 @@
 var Item = require('../model/apiModel.js');
 
 exports.list_all_items = function(req, res) {
-  Task.getAllItems(function(err, item) {
+  Item.getAllItems(function(err, item) {
 
     console.log('controller')
     if (err)
